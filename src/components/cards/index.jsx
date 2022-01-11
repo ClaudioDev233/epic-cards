@@ -1,5 +1,7 @@
 export default function Cards({card}){
-return <div className="container">
+return<>
+<h1> Total de Cards : {card.length}</h1>
+ <div className="container">
   {card.map((card,counter)=>(
     
     <div className='cards'>
@@ -10,4 +12,6 @@ return <div className="container">
     
   ))}
 </div>
+</>
+
 }

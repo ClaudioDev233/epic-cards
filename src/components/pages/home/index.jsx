@@ -1,5 +1,6 @@
 import Cards from "../../cards"
-import {useEffect , useState, useRef} from 'react'
+import {useEffect , useState} from 'react'
+import { Link } from 'react-router-dom'
 export default function Home(){
   const [card, setCard] = useState([])
 
@@ -15,7 +16,9 @@ export default function Home(){
 
   }, [])
     return <>
-    <div>Home
+    <div>
+      <h1>Home</h1>
+      <Link to="/about">Ir para About</Link>
         <Cards
         card={card}
         ></Cards>
