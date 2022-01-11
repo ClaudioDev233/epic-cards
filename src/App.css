@@ -26,3 +26,23 @@
 .card-photo{
     width: 150px;
 }
+.container_app{
+    width: 70%;
+    margin: 0 auto;
+}
+/* HOME*/
+.category-item{
+    height: 54px;
+    padding: 10px 5px;
+    width: 100%;
+    background-color: #304E74;
+    margin: 10px;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    
+    font-size: 16px;
+    color: aliceblue;
+    font-weight: bold;
+}

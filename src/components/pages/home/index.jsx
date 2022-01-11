@@ -15,7 +15,7 @@ const TYPES = [
    ];
 
 export default function Home(){
-    return <div>
-        {TYPES.map((type) => <p>{type}</p>)}
+    return <div className="container_app">
+        {TYPES.map((type) => <div className="category-item">{type}</div>)}
     </div>
 }
