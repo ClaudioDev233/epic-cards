@@ -1,27 +1,21 @@
-import Cards from "../../cards"
-import {useEffect , useState} from 'react'
-import { Link } from 'react-router-dom'
+const TYPES = [
+    "Aqua",
+    "Beast-Warrior",
+    "Cyberse",
+    "Dinosaur",
+    "Dragon",
+    "Fairy",
+    "Fish",
+    "Insect",
+    "Machine",
+    "Plant",
+    "Rock",
+    "Warrior",
+    "Spellcaster"
+   ];
+
 export default function Home(){
-  const [card, setCard] = useState([])
-
-  useEffect(()=>{
-  
-    async function handleGetCard(){
-      const resp = await fetch('http://localhost:3333/cards?_limit=30');
-      const data = await resp.json()
-      setCard(data)
-   }
-   
-   handleGetCard()
-
-  }, [])
-    return <>
-    <div>
-      <h1>Home</h1>
-      <Link to="/about">Ir para About</Link>
-        <Cards
-        card={card}
-        ></Cards>
+    return <div>
+        {TYPES.map((type) => <p>{type}</p>)}
     </div>
-    </>
 }
