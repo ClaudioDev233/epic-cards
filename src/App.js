@@ -1,24 +1,42 @@
-import logo from './logo.svg';
+import {useEffect , useState, useRef} from 'react'
 import './App.css';
 
 function App() {
+
+  const listRef = useRef(null)
+  const [card, setCard] = useState([])
+
+  useEffect(()=>{
+  
+    async function handleGetCard(){
+      const resp = await fetch('http://localhost:3333/cards?_limit=30');
+      const data = await resp.json()
+      setCard(data)
+   }
+   
+   handleGetCard()
+
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div ref={listRef}> {console.log(listRef)}
+      <h1>Total de cards: {card.length}</h1>
+    <div className="container">
+      {card.map((card,counter)=>(
+        <>
+        <div className='cards'>
+        <img className="card-photo" src={card.card_images[0].image_url_small} alt={`foto da carta ${card.name}`}></img>
+        <h1 className="card-name" key={counter}>{card.name}</h1>
+        <p>{card.type}</p>
+        </div>
+        </>
+      ))}
     </div>
+    <button onClick={() =>  listRef.current.scrollIntoView() } > voltar</button>
+    </div>
+    </>
+    
   );
 }
 
