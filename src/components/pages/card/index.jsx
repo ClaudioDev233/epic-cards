@@ -17,7 +17,7 @@ export default function Card(){
    
    handleGetCard()
 
-  }, [])
+  }, [params.category])
 
     return <>
     <div>
