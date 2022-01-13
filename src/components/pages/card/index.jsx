@@ -1,9 +1,13 @@
 import Cards from "../../cards"
-import {useEffect , useState} from 'react'
+import {useContext, useEffect , useState} from 'react'
 import { Link, useParams } from 'react-router-dom'
+
 export default function Card(){
+  
   const params = useParams()
-  console.log(params)
+  
+ 
+
   const [card, setCard] = useState([])
 
 

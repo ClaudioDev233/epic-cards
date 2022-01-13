@@ -19,7 +19,7 @@ const TYPES = [
 export default function Home(){
     
     return <div className="container_app">
-        {TYPES.map((type) => <div className="category-item">
+        {TYPES.map((type, typeID) => <div key={typeID} className="category-item">
         <Link to={`./card/${type}`}>{type}</Link>
             </div>)}
     </div>
