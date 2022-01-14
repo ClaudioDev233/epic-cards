@@ -10,11 +10,24 @@ export default function Card(){
 
   const [card, setCard] = useState([])
 
+  const [page, setPage] = useState(1)
+
+  const handleMorItens = async () =>{
+
+    const resp = await fetch(`http://localhost:3333/cards?race=${params.category}&_limit=20&_page=${page + 1}`);
+    const data = await resp.json()
+
+    setCard([...card , ...data])
+
+    setPage(page + 1)
+  }
+
+
 
   useEffect(()=>{
   
     async function handleGetCard(){
-      const resp = await fetch(`http://localhost:3333/cards?race=${params.category}`);
+      const resp = await fetch(`http://localhost:3333/cards?race=${params.category}&_limit=20&_page=1`);
       const data = await resp.json()
       setCard(data)
    }
@@ -30,6 +43,7 @@ export default function Card(){
         <Cards
         card={card}
         ></Cards>
+        <button onClick={() => {handleMorItens()}}>Clica aqui</button>
     </div>
     </>
 }
